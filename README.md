@@ -91,7 +91,7 @@ for(let i in z){let item = z[i];}
 for(let item of z){}
 ```
 
-####From Conditional Expressions to Conditional Chainin
+#### From Conditional Expressions to Conditional Chainin
 ```js
 // Conditional Expressions 
 let x= ()=>true;
@@ -103,7 +103,7 @@ let x= ()=>true;
  x?.();
 ```
 
-####From Null Checks to Nullish coalescing
+#### From Null Checks to Nullish coalescing
 ```js
 // Null Checks
 let x = ’’; 
