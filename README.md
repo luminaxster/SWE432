@@ -37,7 +37,7 @@ ECMAScript (ES) 2021 is the current general reference specification to build the
 
 JS is often used with other frameworks and libraries making it hard to differentiate which features are native and which are from third-parties, so when refering to JS directly, the community refers to it as *Vanilla JS*. To further differentiate its original flavor from all the features that have been added to it through the years, I call its current version, *French Vanilla JS*.
 
-Since developers and content online may not be up to date with JS evolution, this is a brief summary of features that has evolved recently:
+Since developers and content online may not be up to date with JS evolution, this is a brief summary of features that has evolved recently, achieving the same functionality with a more succint syntax:
 
 #### From Functions to Arrow Functions 
 ```js
