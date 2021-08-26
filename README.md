@@ -114,6 +114,7 @@ let y = x!== null && x!== undefined? x:'';
 let x = ''; let y = x ??'value’;
 ```
 
+# Coming soon
 ## Session 2: Installing and Running NPM Locally	- August 28th	
 ## Session 3: From XHR to Promises	- September 7th	
 ## Session 4: From Fetch to Axios	- September 14th	
