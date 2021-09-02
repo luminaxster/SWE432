@@ -114,8 +114,42 @@ let y = x!== null && x!== undefined? x:'';
 let x = ''; let y = x ??'value’;
 ```
 
+## Session 2: Installing and Running NPM Locally	- Sept 2nd
+### Go to your browser
+
+1. Install [NPM](https://nodejs.org/), it comes bundled with Node.js.
+
+### Go to a terminal in your machine
+
+2. Locate the folder containing the `package.json` file and run these commands:
+```ShellSession
+npm install
+npm run start
+```
+
+In the case of `npm install`, you only have to run it when you add packages to your `package.json`.
+
+### Troubleshooting
+If you get a cryptic error like `throw er; // Unhandled 'error' event` during `npm install`, try removing the package-lock.json file and the node_modules folder, then try re-running the command.
+
+Alternatively, open a terminal, locate your project's root folder, and run these commands:
+
+#### Unik-Like Systems
+```ShellSession
+rm package-lock.json
+rm yarn.lock
+rm -rf ./node_modules
+npm install
+```
+
+#### Windows (PowerShell)
+```ShellSession
+rm package-lock.json
+rm yarn.lock
+rd -r .\node_modules
+npm install
+```
 # Coming soon
-## Session 2: Installing and Running NPM Locally	- August 28th	
 ## Session 3: From XHR to Promises	- September 7th	
 ## Session 4: From Fetch to Axios	- September 14th	
 ## Session 5: A Chat on Fire!	- September 21st	
