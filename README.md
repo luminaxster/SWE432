@@ -149,8 +149,187 @@ rm yarn.lock
 rd -r .\node_modules
 npm install
 ```
+## Session 3: From XHR to Promises	- September 7th
+
+Try using this API to make the same server request with 4 different libraries. You can run it [live](https://codesandbox.io/s/swe-432-react-popcorn-sales-forked-cieih).
+
+This is an API usage example:
+```js
+// function getPlaceAjax
+//  parameter: zip
+//  parameter: success callback
+//  parameter: error callback (optional)
+//  parameter: url (optional)
+//  library: string, one of: "promise" (default), "ajax", "axios", "fetch" (optional)
+//  action: create the XMLHttpRequest object, register the
+//          handler for onreadystatechange, prepare to send
+//          the request (with open), and send the request,
+//          along with the zip code, to the server
+//  includes: the anonymous handler for onreadystatechange
+ getPlace('22033', (data)=>{console.log(data)}, error=>console.warn(error), "https://swe432tomcat.herokuapp.com/zipLookup", "fetch");
+```
+
+And this is the API implementation:
+```js
+import axios from "axios";
+// popcornA.js
+//  Ajax JavaScript code for the popcornA.html document
+//  Thanks to Sebesta, Programming the World Wide Web
+
+/********************************************************/
+
+export function getPlaceAjax(
+  zip,
+  thenCallback,
+  catchCallback,
+  url = "https://swe432tomcat.herokuapp.com/zipLookup"
+) {
+  let xhr = null;
+  if (window.XMLHttpRequest) {
+    // IE7+, Firefox, Chrome, Opera, Safari
+    xhr = new XMLHttpRequest();
+  } else {
+    // IE5, IE6
+    // eslint-disable-next-line
+    xhr = new ActiveXObject("Microsoft.XMLHTTP");
+  }
+
+  // Register the embedded handler function
+  // This function will be called when the server returns
+  // (the "callback" function)
+  xhr.onreadystatechange = () => {
+    // 4 means finished,
+    if (xhr.readyState === 4) {
+      // and 200 means okay.
+      if (xhr.status === 200) {
+        // Data should look like "Fairfax, Virginia"
+        thenCallback(xhr.responseText);
+      } else {
+        catchCallback(xhr.statusText, xhr);
+      }
+    }
+  };
+  // Call the response software component
+  const query = url + "?zip=" + zip;
+  xhr.open("GET", query);
+  xhr.send(null);
+}
+
+export function getPlaceAjaxPromise(
+  zip,
+  thenCallback,
+  catchCallback,
+  url = "https://swe432tomcat.herokuapp.com/zipLookup"
+) {
+  const zipPromise = new Promise((resolutionFunc, rejectionFunc) => {
+    let xhr = null;
+    if (window.XMLHttpRequest) {
+      // IE7+, Firefox, Chrome, Opera, Safari
+      xhr = new XMLHttpRequest();
+    } else {
+      // IE5, IE6
+      // eslint-disable-next-line
+      xhr = new ActiveXObject("Microsoft.XMLHTTP");
+    }
+
+    // Register the embedded handler function
+    // This function will be called when the server returns
+    // (the "callback" function)
+    xhr.onreadystatechange = () => {
+      // 4 means finished,
+      if (xhr.readyState === 4) {
+        // and 200 means okay.
+        if (xhr.status === 200) {
+          // Data should look like "Fairfax, Virginia"
+          resolutionFunc(xhr.responseText);
+        } else {
+          rejectionFunc(xhr.statusText, xhr);
+        }
+      }
+    };
+    // Call the response software component
+    const query = url + "?zip=" + zip;
+    xhr.open("GET", query);
+    xhr.send(null);
+  });
+
+  zipPromise.then(thenCallback).catch(catchCallback);
+}
+
+export function getPlaceFetch(
+  zip,
+  thenCallback,
+  catchCallback,
+  url = "https://swe432tomcat.herokuapp.com/zipLookup"
+) {
+  // Call the response software component
+  const query = url + "?zip=" + zip;
+  fetch(query)
+    .then(
+      // Register the embedded handler function
+      // This function will be called when the server returns
+      // (the "callback" function)
+      // 4 means finished, and 200 means okay.
+      (response) => {
+        // Data should look like "Fairfax, Virginia"
+        response.text().then(thenCallback);
+      }
+    )
+    .catch(catchCallback);
+}
+
+export function getPlaceAxios(
+  zip,
+  thenCallback,
+  catchCallback,
+  url = "https://swe432tomcat.herokuapp.com/zipLookup"
+) {
+  // Call the response software component
+  const query = "zip=" + zip;
+  axios
+    .post(url, query)
+    .then(
+      // Register the embedded handler function
+      // This function will be called when the server returns
+      // (the "callback" function)
+      // 4 means finished, and 200 means okay.
+      (response) => {
+        // Data should look like "Fairfax, Virginia"
+        thenCallback(response.data);
+      }
+    )
+    .catch(catchCallback);
+}
+
+function getPlace(
+  zip,
+  thenCallback,
+  catchCallback,
+  url = "https://swe432tomcat.herokuapp.com/zipLookup",
+  library = "promise"
+) {
+  let targetLibrary = null;
+  switch (library) {
+    case "axios":
+      targetLibrary = getPlaceAxios;
+      break;
+    case "fetch":
+      targetLibrary = getPlaceFetch;
+      break;
+    case "promise":
+      targetLibrary = getPlaceAjaxPromise;
+      break;
+    case "ajax":
+    default:
+      targetLibrary = getPlaceAjax;
+  }
+  targetLibrary(zip, thenCallback, catchCallback, url);
+}
+
+export default getPlace;
+
+```
 # Coming soon
-## Session 3: From XHR to Promises	- September 7th	
 ## Session 4: From Fetch to Axios	- September 14th	
 ## Session 5: A Chat on Fire!	- September 21st	
 ## Session 6: Servlet Microservices	- September 28th	
