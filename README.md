@@ -150,6 +150,68 @@ rd -r .\node_modules
 npm install
 ```
 ## Session 3: From XHR to Promises	- September 7th
+Asynchronous behavior was not as simple in earlier versions of JavaScript, often it was done via XML Http Requests ([XHR](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest)):
+```js
+const URL = 'https://swe432tomcat.herokuapp.com/zipLookup?zip=22030';
+
+xhr = new XMLHttpRequest();
+xhr.onreadystatechange = ()=>{
+	if(xhr.readyState===4){
+	  if(xhr.status===200)
+	    console.log( JSON.parse(xhr.responseText));
+	  else
+	    console.log(xhr.statusText);
+	}
+};
+xhr.open('GET', URL); xhr.send();
+
+```
+Now is often done via the [fetch API](https://developer.mozilla.org/en-US/docs/Web/API/fetch):
+```js
+const URL = 'https://swe432tomcat.herokuapp.com/zipLookup?zip=22030';
+
+fetch(URL).then(
+  response=>{
+	response.json()
+	.then(	
+	  responseObj=>{
+		console.log(
+		  responseObj
+		); }
+	  ); }
+).catch(console.log); 
+
+```
+This API relies on promises, which are the building abstraction to implement asynchronous behavior.
+### Instanciating Promises
+A [promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) is asynchronous in nature, it is an abstraction that encapsulates asynchronous behavior, it offers an API where an object can indicate events such as resolve or reject via callback functions defined by users. Promises can be used:
+####  Directly
+```js
+let x= ()=>new Promise(
+(onComplete, onReject)=>{
+   onComplete(true);
+});
+```
+Or,
+####  By defining Async functions: they return promises
+```js
+let x= async ()=>{
+ return await true; 
+};
+```
+### Handling Promises
+
+```js
+x().then(console.log).catch(console.log);
+// or
+let y= async ()=>{
+ 	const value = await x(); 
+	console.log(value);
+};
+y(); // finally?
+```
+
+
 
 ## Session 4: From Fetch to Axios	- September 14th	
 
