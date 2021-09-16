@@ -151,6 +151,8 @@ npm install
 ```
 ## Session 3: From XHR to Promises	- September 7th
 
+## Session 4: From Fetch to Axios	- September 14th	
+
 Try using this API to make the same server request with 4 different libraries. You can run it [live](https://codesandbox.io/s/swe-432-react-popcorn-sales-forked-cieih).
 
 This is an API usage example:
@@ -330,7 +332,6 @@ export default getPlace;
 
 ```
 # Coming soon
-## Session 4: From Fetch to Axios	- September 14th	
 ## Session 5: A Chat on Fire!	- September 21st	
 ## Session 6: Servlet Microservices	- September 28th	
 ## Session 7: Reacting to Client Requests using Microservices	- October 19th	
