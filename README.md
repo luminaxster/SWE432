@@ -393,9 +393,16 @@ function getPlace(
 export default getPlace;
 
 ```
-# Coming soon
-## Session 5: A Chat on Fire!	- September 21st	
+
+## Session 5: A Chat on Fire!	- September 21st
+We will dive into a real application that uses Firebase to implement a chat: 
+https://github.com/devuxd/SeeCodeRun/blob/master/scr-app/src/containers/Chat.js
+
 ## Session 6: Servlet Microservices	- September 28th	
+Wondering how you can write microservices in Java, here is a Heroku project using Tomcat to provide microservices:
+https://github.com/luminaxster/swe432tomcat
+
+# Coming soon
 ## Session 7: Reacting to Client Requests using Microservices	- October 19th	
 ## Session 8: Material UI -	October 26th
 
