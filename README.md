@@ -393,6 +393,7 @@ function getPlace(
 export default getPlace;
 
 ```
+**Note:** The zip microservice is implmenented in Java, this does not affect your frontend, however, if feeling curious, check out session 6 to know more on how this was done.
 
 ## Session 5: A Chat on Fire!	- September 21st
 We will dive into a real application that uses Firebase to implement a chat: 
