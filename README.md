@@ -409,5 +409,5 @@ https://github.com/luminaxster/swe432tomcat
 We will revisit [session 4's example](https://codesandbox.io/s/swe-432-react-popcorn-sales-forked-cieih), this time we will focus on the React code.
 
 ## Session 8: Material UI -	October 26th
-Looking for UI framework? Try MUI: https://codesandbox.io/s/swe-432-react-two-buttons-example-mui-yohyi
+Looking for a React UI framework? Try MUI: https://codesandbox.io/s/swe-432-react-two-buttons-example-mui-yohyi
 
