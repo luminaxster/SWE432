@@ -402,12 +402,12 @@ https://github.com/devuxd/SeeCodeRun/blob/master/scr-app/src/containers/Chat.js
 ## Session 6: Servlet Microservices	- September 28th	
 Wondering how you can write microservices in Java, here is a Heroku project using Tomcat to provide microservices:
 https://github.com/luminaxster/swe432tomcat
+
 **Note:** Can you rest assure the service is using REST principles?
 
 ## Session 7: Reacting to Client Requests using Microservices	- October 19th	
 We will revisit [session 4's example](https://codesandbox.io/s/swe-432-react-popcorn-sales-forked-cieih), this time we will focus on the React code.
 
-# Coming soon
 ## Session 8: Material UI -	October 26th
-
+Looking for UI framework? Try MUI: https://codesandbox.io/s/swe-432-react-two-buttons-example-mui-yohyi
 
