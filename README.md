@@ -403,8 +403,10 @@ https://github.com/devuxd/SeeCodeRun/blob/master/scr-app/src/containers/Chat.js
 Wondering how you can write microservices in Java, here is a Heroku project using Tomcat to provide microservices:
 https://github.com/luminaxster/swe432tomcat
 
-# Coming soon
 ## Session 7: Reacting to Client Requests using Microservices	- October 19th	
+We will revisit [session 4's example](https://codesandbox.io/s/swe-432-react-popcorn-sales-forked-cieih), this time we will focus on the React code.
+
+# Coming soon
 ## Session 8: Material UI -	October 26th
 
 
