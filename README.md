@@ -393,7 +393,7 @@ function getPlace(
 export default getPlace;
 
 ```
-**Note:** The zip microservice is implmenented in Java, this does not affect your frontend, however, if feeling curious, check out session 6 to know more on how this was done.
+**Note:** The zip microservice is implemented in Java, this does not affect your frontend, however, if feeling curious, check out session 6 to know more on how this was done.
 
 ## Session 5: A Chat on Fire!	- September 21st
 We will dive into a real application that uses Firebase to implement a chat: 
@@ -402,6 +402,7 @@ https://github.com/devuxd/SeeCodeRun/blob/master/scr-app/src/containers/Chat.js
 ## Session 6: Servlet Microservices	- September 28th	
 Wondering how you can write microservices in Java, here is a Heroku project using Tomcat to provide microservices:
 https://github.com/luminaxster/swe432tomcat
+**Note:** Can you rest assure the service is using REST principles?
 
 ## Session 7: Reacting to Client Requests using Microservices	- October 19th	
 We will revisit [session 4's example](https://codesandbox.io/s/swe-432-react-popcorn-sales-forked-cieih), this time we will focus on the React code.
